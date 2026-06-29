@@ -3,13 +3,13 @@
 #SBATCH --job-name=AI-Learning-Agent
 #SBATCH --partition=gpu
 #SBATCH --nodelist=node1
-#SBATCH --error=/home/pkc/MM/projects/autoresearch/logs/agent_error_%j.log
-#SBATCH --output=/home/pkc/MM/projects/autoresearch/logs/agent_output_%j.log
+#SBATCH --error=/home/pkc/MM/projects/autoresearch-learning/logs/agent_error_%j.log
+#SBATCH --output=/home/pkc/MM/projects/autoresearch-learning/logs/agent_output_%j.log
 #SBATCH --gres=shard:90
 
 # ── Absolute paths ────────────────────────────────────────────────────────────
 PROJECT_ROOT=/home/pkc/MM/projects
-AGENT_DIR=${PROJECT_ROOT}/autoresearch # Update this if the repo folder name changes
+AGENT_DIR=${PROJECT_ROOT}/autoresearch-learning # Update this if the repo folder name changes
 
 cd ${AGENT_DIR}
 
