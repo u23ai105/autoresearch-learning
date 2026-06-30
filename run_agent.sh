@@ -28,9 +28,9 @@ echo "[ENV] Python  : $(which python)"
 # ── Misc env flags ────────────────────────────────────────────────────────────
 export TF_ENABLE_ONEDNN_OPTS=0
 # Note: Keep these 0 if downloading the model weights for the very first time. Set to 1 if the model is already cached.
-export HF_HUB_OFFLINE=0       
-export TRANSFORMERS_OFFLINE=0 
-export HF_DATASETS_OFFLINE=0  
+export HF_HUB_OFFLINE=1       
+export TRANSFORMERS_OFFLINE=1 
+export HF_DATASETS_OFFLINE=1  
 
 # ── Launch generation ─────────────────────────────────────────────────────────
 python -u ${AGENT_DIR}/generate.py \
