@@ -67,7 +67,7 @@ class Orchestrator:
             {"role": "system", "content": self.prompts["teacher"]},
             {"role": "user", "content": f"Teach the topic '{topic}' in the context of '{subject}'."}
         ]
-        content = self.llm.generate([teacher_msg], max_tokens=8192)[0]
+        content = self.llm.generate([teacher_msg], max_tokens=4096)[0]
         
         # 2. Reviewer Optimization Loop
         max_retries = 3
@@ -92,7 +92,7 @@ class Orchestrator:
                 # Ask teacher to refine
                 teacher_msg.append({"role": "assistant", "content": content})
                 teacher_msg.append({"role": "user", "content": f"The reviewer gave a score of {score}/100 and provided this feedback:\n{feedback}\n\nPlease rewrite the entire topic to address these concerns, improve the score, and ensure all MIT-level requirements are met."})
-                content = self.llm.generate([teacher_msg], max_tokens=8192)[0]
+                content = self.llm.generate([teacher_msg], max_tokens=4096)[0]
 
         # 3. Save Topic Content
         clean_filename = re.sub(r'[^a-zA-Z0-9_\-]', '_', topic)

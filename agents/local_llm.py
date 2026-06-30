@@ -17,7 +17,7 @@ class LocalLLM:
             dtype=dtype,
             tensor_parallel_size=tensor_parallel_size,
             trust_remote_code=True,
-            max_model_len=8192
+            max_model_len=16384
         )
         self.tokenizer = self.llm.get_tokenizer()
         print("Model loaded successfully.")
